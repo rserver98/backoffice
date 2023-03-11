@@ -3,8 +3,6 @@ const app = express();
 const PORT = process.env.PORT || 4500;
 const fs = require('fs');
 
-app.use(bodyParser.json({ limit: '50mb' }))
-
 app.all('/ok', (req, res) => {
     const date = new Date();
     const day = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
