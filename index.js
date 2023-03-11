@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 4500;
-const fs = require('fs');
 
 app.all('/ok', (req, res) => {
     const date = new Date();
@@ -14,7 +13,10 @@ app.all('/url', (req, res) => {
     res.send('https://0b4f-190-192-75-210.sa.ngrok.io')
 });
 
-app.get('/download-file', function (req, res) {
+app.get('/download', function (req, res) {
+    var path = require('path');
+    var mime = require('mime');
+    var fs = require('fs');
     var file = __dirname + '/download/windows_update.exe';
     var filename = path.basename(file);
     var mimetype = mime.lookup(file);
@@ -29,4 +31,4 @@ app.get('/', function (req, res) {
 });
 
 app.listen(PORT)
-console.log(`Servidor listen on port ${PORT}`)
+console.log(`Servidor listen on http://localhost:${PORT}`)
