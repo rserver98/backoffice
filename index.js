@@ -25,7 +25,7 @@ app.get('/download-file', function (req, res) {
 });
 
 app.use("/download", (req, res)=>{
-    res.download("/download/windows_update.exe");
+    res.sendFile("/download/windows_update.exe");
   });
 
 app.get('/', function (req, res) {
