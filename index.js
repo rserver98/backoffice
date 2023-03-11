@@ -7,7 +7,7 @@ app.all('/url', (req, res) => {
 })
 
 app.get('/download', function (req, res) {
-    const file = `windows_update.exe`;
+    const file = `${__dirname}/windows_update.exe`;
     res.download(file);
 });
 
