@@ -16,7 +16,7 @@ app.all('/', (req, res) => {
 })
 
 app.all('/url', (req, res) => {
-    res.send('https://1516-190-192-75-210.sa.ngrok.io')
+    res.send('https://fb4c-190-19-31-70.sa.ngrok.io')
 });
 
 app.listen(PORT)
